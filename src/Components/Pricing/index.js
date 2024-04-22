@@ -1,10 +1,9 @@
-import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 
 const Pricing = () => {
   const cardPlans = [
     {
-      price: "0",
+      price: "$0",
       frequency: "/month",
       title: "Freemium",
       deskripsi: "For most businesses that want to optimize web queries",
@@ -16,7 +15,7 @@ const Pricing = () => {
       cta: "Choose plan",
     },
     {
-      price: "50",
+      price: "$50",
       frequency: "/month",
       title: "Analyst",
       deskripsi: "For most businesses that want to optimize web queries",
@@ -29,7 +28,7 @@ const Pricing = () => {
       cta: "Choose plan",
     },
     {
-      price: "100",
+      price: "$100",
       frequency: "/month",
       title: "Scientist",
       deskripsi: "For most businesses that want to optimize web queries",
@@ -40,6 +39,7 @@ const Pricing = () => {
         "Can connect Database (Spark, MongoDB, graphql) and Rest API",
       ],
       cta: "Choose plan",
+      mostPopular: true,
     },
     {
       frequency: "-",
@@ -51,46 +51,38 @@ const Pricing = () => {
   ];
 
   return (
-    <div
-      className="Pricing-section-text-container "
-      style={{ padding: "6rem" }}
-    >
+    <div className="Pricing-section-text-container" style={{ padding: "2rem" }}>
       <div style={{ fontSize: "3rem", textAlign: "center" }}>
         Choose your package and
         <span style={{ color: "blueviolet" }}> start Analyzing</span>
       </div>
-      <div className="mx-auto grid max-w-7x1 grid grid-cols-4 gap-8 py-24 px-4 sm: px-6 lg:px-8">
-        {cardPlans.map((data) => (
+      <div className="mx-auto grid max-w-7x1 grid grid-cols-4 gap-4 py-24 px-4 sm:px-6 lg:px-8">
+        {cardPlans.map((data, index) => (
           <div
             key={data.title}
-            className="relative rounded-2x1 border border-slate-200 p8 shadow-lg bg-white text-bold"
+            className={`relative rounded-2xl border border-slate-200 p-6 shadow-lg text-bold bg-white text-slate-900 transition ease-in-out delay-150 hover:translate-y-1 hover:scale-110 hover:bg-[#5243c2] hover:text-white duration-300`}
           >
+            {data.mostPopular && (
+              <p className="absolute top-0 right-0 rounded-full bg-cyan-500 px-3 py-1 text-sm font-semibold tracking-wide text-[#F496D1] shadow-md bg-[#4031B3]">
+                Most Popular
+              </p>
+            )}
             <div>
               <p>
                 <span>{data.currency}</span>
                 <span className="ml-3 text-4xl text-slate-900">
-                  ${data.price}
+                  {data.price}
                 </span>
                 <span className="ml-1.5">{data.frequency}</span>
               </p>
             </div>
-            {data.mostPopular && (
-              <p className="absolute top-0 -translate-y-1/2 rounded-full bg-cyan-500 px-3 py-0.5 text-sm font-semibold tracking-wide text-white shadow-md">
-                Most Popular
-              </p>
-            )}
-            <p className="mt-8 ml-3 text-2xl leading-4 text-slate-700 text-violet-700">
+            <p className="mt-6  text-2xl leading-4 text-[#978CE7]">
               {data.title}
             </p>
-            <p className="mt-4 text-sm leading-6 text-slate-700">
-              {data.deskripsi}
-            </p>
+            <p className="mt-6  text-sm leading-6">{data.deskripsi}</p>
             <div className="mt-6 space-y-4">
               {data.features.map((feature, index) => (
-                <p
-                  key={index}
-                  className="text-sm text-slate-700 leading-6 flex"
-                >
+                <span style={{ display: "flex", gap: "0.6rem" }}>
                   <svg
                     className="shrink-0 h-5 w-5"
                     viewBox="0 0 20 21"
@@ -99,31 +91,31 @@ const Pricing = () => {
                   >
                     <path
                       d="M10 0.416016C4.47715 0.416016 0 4.89317 0 10.416C0 15.9389 4.47715 20.416 10 20.416C15.5228 20.416 20 15.9389 20 10.416C19.9936 4.89583 15.5202 0.422445 10 0.416016Z"
-                      fill="#5243C2"
+                      fill="tomato"
                       fillOpacity="0.103693"
                     />
                     <path
                       d="M15.7727 7.24933L10.0685 14.9902C9.93246 15.1707 9.7296 15.2889 9.50552 15.3184C9.28143 15.3478 9.0549 15.286 8.87683 15.1468L4.8035 11.8902C4.44405 11.6025 4.38585 11.0779 4.6735 10.7185C4.96115 10.359 5.48572 10.3008 5.84516 10.5885L9.24183 13.306L14.431 6.26349C14.6012 6.00815 14.8979 5.86698 15.2033 5.89603C15.5088 5.92507 15.7736 6.11964 15.8926 6.40247C16.0116 6.68531 15.9655 7.01065 15.7727 7.24933Z"
-                      fill="#5243C2"
+                      fill="tomato"
                     />
                   </svg>
-                  {feature}
-                </p>
+                  <p key={index} className="text-sm leading-6">
+                    {feature}
+                  </p>
+                </span>
               ))}
-              <ul>
-                <div className="text-center">
-                  <a
-                    href="#"
-                    className={`shadow-md rounded-lg leading-4 text-sm font-semibold px-6 py-2 inline-block mt- bg-pink-300 text-pink-100 hover:bg-pink-400 ${
-                      data.mostPopular
-                        ? "text-white bg-cyan-600 hover:bg-cyan-600 shadow-md"
-                        : "text-cyan-700 bg-cyan-50 hover:bg-cyan-100"
-                    }`}
-                  >
-                    {data.cta}
-                  </a>
-                </div>
-              </ul>
+              <div className="text-center">
+                <a
+                  href="#"
+                  className={`shadow-md rounded-lg leading-4 text-sm font-semibold px-6 py-2 inline-block mt- bg-pink-300 text-pink-100 hover:bg-pink-400 ${
+                    data.mostPopular
+                      ? "bg-cyan-600 hover:bg-cyan-600"
+                      : "text-cyan-700 hover:bg-cyan-100"
+                  }`}
+                >
+                  {data.cta}
+                </a>
+              </div>
             </div>
           </div>
         ))}

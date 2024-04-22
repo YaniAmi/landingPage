@@ -1,6 +1,6 @@
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
 
-export default function Formpage() {
+const RegisterPage = () => {
   return (
     <div className="form-page-container">
       <Card
@@ -106,4 +106,5 @@ export default function Formpage() {
       </Card>
     </div>
   );
-}
+};
+export default RegisterPage;

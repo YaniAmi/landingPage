@@ -213,9 +213,7 @@ nav {
   margin-right: 1.25rem;
   color: #585858;
 }
-/* .footer-section-one {
-  border: 2px solid blue;
-} */
+
 .footer-section-two {
   flex: 1;
   display: flex;
@@ -432,7 +430,6 @@ nav {
 }
 
 .CaseStudi-banner-container {
-  /* position: relative; */
   display: flex;
   padding-top: 3rem;
 }
@@ -466,10 +463,8 @@ nav {
   .client-section-image-container {
     margin-top: 5rem;
     display: flex;
-    /* flex-direction: row; */
     justify-content: center;
     align-items: center;
-    /* flex-wrap: wrap; */
   }
 
   .client-section-image-container img {
@@ -515,5 +510,7 @@ nav {
     padding-left: 20px;
   }
   
-  /* slider */
+  .form-page-container {
+    background: linear-gradient(to right, #4b6cb7, #182848);
+  }
   

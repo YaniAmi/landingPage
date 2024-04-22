@@ -1,6 +1,5 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
-// import Navbar from "./Navbar.js";
 import Untitled from "../Assets/Untitled.svg";
 import User from "../Assets/User.svg";
 import studicase from "../Assets/studicase.svg";
