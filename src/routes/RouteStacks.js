@@ -16,6 +16,8 @@ const RouteStacks = () => {
 
       <Route path={"/home"} element={<Home />} />
       <Route path={"/register"} element={<Register />} />
+
+      {/* PrivateRoute */}
       <Route
         path={"/profile"}
         element={
